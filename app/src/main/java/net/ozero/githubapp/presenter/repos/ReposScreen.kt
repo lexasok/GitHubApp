@@ -23,16 +23,6 @@ class RepoPresenter(private val view: ReposView) : BasePresenter(view) {
         }
         executor.execute(loadMoreRepos) {}
     }
-
-    fun onButtonAddPressed() {
-        executor.execute(loadMoreRepos) {}
-    }
-
-    override fun onError(error: Throwable) {
-        super.onError(error)
-        view.showError(error)
-        error.printStackTrace()
-    }
 }
 
 interface ReposView : BaseView {

@@ -5,4 +5,7 @@
     <string name="repos_title">Repos</string>
     <string name="owner_title">Owner</string>
 
+    <!--Profile-->
+    <string name="profile_title">Profile</string>
+
 </resources>

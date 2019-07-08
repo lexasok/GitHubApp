@@ -23,7 +23,8 @@ abstract class BasePresenter(private val view: BaseView) : KodeinAware {
     }
 
     open fun onError(error: Throwable) {
-
+        view.showError(error)
+        error.printStackTrace()
     }
 }
 

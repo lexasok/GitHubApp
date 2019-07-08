@@ -12,7 +12,7 @@ interface RepoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(repo: RepoLocalModel)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg repos: RepoLocalModel)
 
     @Query("SELECT * FROM RepoLocalModel")

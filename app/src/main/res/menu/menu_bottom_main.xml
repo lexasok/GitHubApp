@@ -6,4 +6,9 @@
         android:id="@+id/menuRepos"
         android:title="@string/repos_title" />
 
+    <item
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:id="@+id/menuProfile"
+        android:title="@string/profile_title" />
+
 </menu>
