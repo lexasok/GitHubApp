@@ -4,6 +4,7 @@
     <!--Default Margins-->
     <dimen name="margin_default">16dp</dimen>
     <dimen name="margin_large">24dp</dimen>
+    <dimen name="margin_extra_large">64dp</dimen>
 
     <!--Default Text Sizes-->
     <dimen name="text_default">16sp</dimen>

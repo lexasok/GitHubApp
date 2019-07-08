@@ -12,26 +12,31 @@
     <TextView
         android:id="@+id/profile_login"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_height="0dp"
         tools:text="lexasok"
         style="@style/text_title"
+        android:gravity="center"
         />
 
     <ImageView
         android:id="@+id/profile_avatar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:layout_height="0dp"
         android:contentDescription="@string/profile_content_desc_avatar"
         tools:src="@mipmap/ic_launcher"
-        android:layout_margin="@dimen/margin_default"
+        android:layout_margin="@dimen/margin_extra_large"
         />
 
     <TextView
         android:id="@+id/profile_created_at"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_height="0dp"
         tools:text="20.07.1999"
         style="@style/text_default"
+        android:gravity="center"
         />
 
 </LinearLayout>
