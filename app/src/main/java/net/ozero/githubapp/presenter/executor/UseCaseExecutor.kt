@@ -58,8 +58,8 @@ class UseCaseExecutor(
 
     fun <TEntity, TParams>executeParamsObservable(
         useCase: ObservableParamsUseCase<TEntity, TParams>,
-        action: suspend (Deferred<LiveData<TEntity>>) -> Unit,
-        params: TParams
+        params: TParams,
+        action: suspend (Deferred<LiveData<TEntity>>) -> Unit
     ) {
         job = scope.launch {
             try {

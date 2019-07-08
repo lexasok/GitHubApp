@@ -1,5 +1,6 @@
 package net.ozero.githubapp.presenter.base
 
+import android.os.Bundle
 import androidx.lifecycle.LifecycleOwner
 import net.ozero.githubapp.App
 import net.ozero.githubapp.presenter.executor.UseCaseExecutor
@@ -14,7 +15,7 @@ abstract class BasePresenter(private val view: BaseView) : KodeinAware {
     override val kodein: Kodein
         get() = App.kodein()
 
-    open fun onCreate() {
+    open fun onCreate(arguments: Bundle? = null) {
         view.initView()
     }
 

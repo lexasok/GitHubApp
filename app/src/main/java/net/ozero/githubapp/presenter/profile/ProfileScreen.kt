@@ -1,5 +1,6 @@
 package net.ozero.githubapp.presenter.profile
 
+import android.os.Bundle
 import net.ozero.githubapp.entity.Profile
 import net.ozero.githubapp.presenter.base.BasePresenter
 import net.ozero.githubapp.presenter.base.BaseView
@@ -10,8 +11,8 @@ class ProfilePresenter(private val view: ProfileView) : BasePresenter(view) {
 
     private val profile by instance<ProfileUseCase>()
 
-    override fun onCreate() {
-        super.onCreate()
+    override fun onCreate(arguments: Bundle?) {
+        super.onCreate(arguments)
         executor.execute(profile) {
             view.profile = it.await()
         }

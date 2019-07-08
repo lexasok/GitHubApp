@@ -40,7 +40,7 @@ class RepoSourceImpl(private val apiClient: ApiClient, private val repoDao: Repo
         }
     }
 
-    override fun observeById(id: Int): LiveData<Repo> = Transformations
+    override fun observeById(id: Long): LiveData<Repo> = Transformations
         .map(repoDao.observeById(id)) {
             it.mapToDomain()
         }

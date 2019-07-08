@@ -14,7 +14,7 @@ interface RepoSource {
 
     fun observeAll(): LiveData<List<Repo>>
 
-    fun observeById(id: Int): LiveData<Repo>
+    fun observeById(id: Long): LiveData<Repo>
 
     suspend fun loadMoreAsync() : Deferred<Result<List<Repo>>>
 }

@@ -9,4 +9,10 @@
     <string name="profile_title">Profile</string>
     <string name="profile_content_desc_avatar">The avatar image of my  github profile</string>
 
+    <!--Data Keys-->
+    <string name="key_repo_id">RepoID</string>
+
+    <!--Errors-->
+    <string name="error_wrong_data">Wrong data type</string>
+
 </resources>

@@ -12,14 +12,14 @@ data class RepoRemoteModel(
     @SerializedName("owner")
     val owner: Owner,
     @SerializedName("description")
-    val description: String
+    val description: String?
 ) : DataMapper<Repo> {
 
     override fun mapToDomain(): Repo = Repo(
         id,
         repoName,
         owner.login,
-        description
+        description ?: ""
     )
 }
 

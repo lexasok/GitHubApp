@@ -11,7 +11,7 @@ data class RepoLocalModel(
     val id: Int,
     val repoName: String,
     val ownerName: String,
-    val description: String = ""
+    val description: String
 ) : DataMapper<Repo> {
 
     override fun mapToDomain(): Repo = Repo(id, repoName, ownerName, description)

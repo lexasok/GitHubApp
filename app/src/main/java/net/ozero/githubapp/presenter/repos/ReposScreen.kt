@@ -1,5 +1,6 @@
 package net.ozero.githubapp.presenter.repos
 
+import android.os.Bundle
 import androidx.lifecycle.Observer
 import net.ozero.githubapp.entity.Repo
 import net.ozero.githubapp.presenter.base.BasePresenter
@@ -13,8 +14,8 @@ class RepoPresenter(private val view: ReposView) : BasePresenter(view) {
     private val repos by instance<ObserveReposUseCase>()
     private val loadMoreRepos by instance<LoadMoreReposUseCase>()
 
-    override fun onCreate() {
-        super.onCreate()
+    override fun onCreate(arguments: Bundle?) {
+        super.onCreate(arguments)
         executor.executeObservable(repos) {
             it.await().observe(view, Observer {repos ->
                 view.repos = repos
