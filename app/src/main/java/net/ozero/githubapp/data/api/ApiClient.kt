@@ -1,7 +1,7 @@
-package net.ozero.githubapp.data.repo.remote
+package net.ozero.githubapp.data.api
 
 import kotlinx.coroutines.Deferred
-import net.ozero.githubapp.entity.Repo
+import net.ozero.githubapp.data.repo.remote.RepoRemoteModel
 import retrofit2.Response
 import retrofit2.http.GET
 

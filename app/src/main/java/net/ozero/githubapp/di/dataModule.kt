@@ -6,7 +6,7 @@ import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import net.ozero.githubapp.BuildConfig
 import net.ozero.githubapp.data.database.RoomAppDatabase
-import net.ozero.githubapp.data.repo.remote.ApiClient
+import net.ozero.githubapp.data.api.ApiClient
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.kodein.di.Kodein

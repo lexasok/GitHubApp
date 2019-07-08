@@ -1,7 +1,7 @@
 package net.ozero.githubapp.data.repo.remote
 
 import com.google.gson.annotations.SerializedName
-import net.ozero.githubapp.data.repo.DataMapper
+import net.ozero.githubapp.data.DataMapper
 import net.ozero.githubapp.entity.Repo
 
 data class RepoRemoteModel(
@@ -11,7 +11,7 @@ data class RepoRemoteModel(
     val repoName: String = "",
     @SerializedName("owner")
     val owner: Owner
-) : DataMapper<RepoRemoteModel, Repo> {
+) : DataMapper<Repo> {
 
     override fun mapToDomain(): Repo = Repo(
         id,

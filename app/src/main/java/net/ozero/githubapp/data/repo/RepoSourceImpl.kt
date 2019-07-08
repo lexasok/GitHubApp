@@ -6,7 +6,7 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.IO
 import net.ozero.githubapp.data.repo.local.RepoDao
 import net.ozero.githubapp.data.repo.local.toLocalModel
-import net.ozero.githubapp.data.repo.remote.ApiClient
+import net.ozero.githubapp.data.api.ApiClient
 import net.ozero.githubapp.entity.InternetError
 import net.ozero.githubapp.entity.Repo
 import net.ozero.githubapp.entity.Result

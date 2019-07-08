@@ -7,5 +7,6 @@
 
     <!--Profile-->
     <string name="profile_title">Profile</string>
+    <string name="profile_content_desc_avatar">The avatar image of my  github profile</string>
 
 </resources>
