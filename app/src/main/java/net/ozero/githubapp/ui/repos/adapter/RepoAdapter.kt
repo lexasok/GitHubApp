@@ -24,7 +24,9 @@ class RepoAdapter : BaseListAdapter<RepoViewHolder, Repo>() {
 
 class RepoViewHolder(view: View) : BaseViewHolder<Repo>(view) {
     override fun bind(items: List<Repo>, position: Int) {
-        itemView.item_house_text_address.text = items[position].repoName
+        val repo = items[position]
+        itemView.item_repo_name.text = repo.repoName
+        itemView.item_repo_owner_name.text = repo.ownerName
     }
 }
 

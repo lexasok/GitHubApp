@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">GitHub App</string>
 
-    <!--Houses-->
+    <!--Repos-->
     <string name="repos_title">Repos</string>
+    <string name="owner_title">Owner</string>
 
 </resources>

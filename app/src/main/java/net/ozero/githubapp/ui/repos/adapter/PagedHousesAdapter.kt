@@ -18,7 +18,7 @@ class PagedHousesAdapter : BasePagedListAdapter<HousesPagedViewHolder, Repo>(Hou
 
 class HousesPagedViewHolder(view: View) : BasePagedViewHolder<Repo>(view) {
     override fun bind(items: List<Repo>, position: Int) {
-        itemView.item_house_text_address.text = items[position].repoName
+        itemView.item_repo_name.text = items[position].repoName
     }
 }
 
