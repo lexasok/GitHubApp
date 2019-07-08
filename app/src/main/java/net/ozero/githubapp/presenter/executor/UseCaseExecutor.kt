@@ -4,10 +4,10 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import kotlinx.coroutines.*
 import net.ozero.githubapp.presenter.error.ErrorHandler
+import net.ozero.githubapp.usecase.ObservableParamsUseCase
 import net.ozero.githubapp.usecase.ObservableUseCase
 import net.ozero.githubapp.usecase.UseCase
 
-// TODO add loading state
 class UseCaseExecutor(
     private val scope: CoroutineScope,
     private val onError: (Throwable) -> Unit,
@@ -35,7 +35,6 @@ class UseCaseExecutor(
         }
     }
 
-    // TODO add params
     fun <TEntity>executeObservable(
         useCase: ObservableUseCase<TEntity>,
         action: suspend (Deferred<LiveData<TEntity>>) -> Unit
@@ -43,6 +42,28 @@ class UseCaseExecutor(
         job = scope.launch {
             try {
                 val deferred = useCase.executeAsync()
+                action(deferred)
+            } catch (e: CancellationException) {
+                Log.i("$useCase" ,"cancelled")
+            } catch (e: Throwable) {
+                e.printStackTrace()
+                try {
+                    onError(e)
+                } catch (e: Throwable) {
+                    errorHandler.handle(e)
+                }
+            }
+        }
+    }
+
+    fun <TEntity, TParams>executeParamsObservable(
+        useCase: ObservableParamsUseCase<TEntity, TParams>,
+        action: suspend (Deferred<LiveData<TEntity>>) -> Unit,
+        params: TParams
+    ) {
+        job = scope.launch {
+            try {
+                val deferred = useCase.executeAsync(params)
                 action(deferred)
             } catch (e: CancellationException) {
                 Log.i("$useCase" ,"cancelled")

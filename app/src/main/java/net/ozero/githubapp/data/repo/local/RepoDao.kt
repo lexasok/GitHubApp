@@ -17,4 +17,7 @@ interface RepoDao {
 
     @Query("SELECT * FROM RepoLocalModel")
     fun observeAll(): LiveData<List<RepoLocalModel>>
+
+    @Query("SELECT * FROM RepoLocalModel WHERE id = :id" )
+    fun observeById(id: Int): LiveData<RepoLocalModel>
 }

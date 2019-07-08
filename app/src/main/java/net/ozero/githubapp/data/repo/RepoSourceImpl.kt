@@ -39,4 +39,9 @@ class RepoSourceImpl(private val apiClient: ApiClient, private val repoDao: Repo
             Result(error = InternetError(response.message()))
         }
     }
+
+    override fun observeById(id: Int): LiveData<Repo> = Transformations
+        .map(repoDao.observeById(id)) {
+            it.mapToDomain()
+        }
 }

@@ -10,7 +10,12 @@ interface UseCase<T> {
 }
 
 // TODO add params
-interface ObservableUseCase<T> {
+interface ObservableParamsUseCase<TResult, TParams> {
 
-    suspend fun executeAsync(): Deferred<LiveData<T>>
+    suspend fun executeAsync(params: TParams): Deferred<LiveData<TResult>>
+}
+
+interface ObservableUseCase<TResult> {
+
+    suspend fun executeAsync(): Deferred<LiveData<TResult>>
 }

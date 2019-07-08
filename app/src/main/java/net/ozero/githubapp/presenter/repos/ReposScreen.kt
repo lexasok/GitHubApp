@@ -8,7 +8,6 @@ import net.ozero.githubapp.usecase.repos.LoadMoreReposUseCase
 import net.ozero.githubapp.usecase.repos.ObserveReposUseCase
 import org.kodein.di.erased.instance
 
-// TODO save state
 class RepoPresenter(private val view: ReposView) : BasePresenter(view) {
 
     private val repos by instance<ObserveReposUseCase>()
