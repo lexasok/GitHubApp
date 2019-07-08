@@ -12,4 +12,10 @@
         android:label="ReposFragment"
         />
 
+    <fragment
+        android:id="@+id/menuProfile"
+        android:name="net.ozero.githubapp.ui.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        />
+
 </navigation>

@@ -10,7 +10,7 @@ class ProfileFragment : BaseFragment<ProfilePresenter>(), ProfileView {
 
     override fun initPresenter(): ProfilePresenter = ProfilePresenter(this)
 
-    override fun layoutId(): Int = R.layout.fragment_repos
+    override fun layoutId(): Int = R.layout.fragment_profile
 
     override fun showError(error: Throwable) {}
 

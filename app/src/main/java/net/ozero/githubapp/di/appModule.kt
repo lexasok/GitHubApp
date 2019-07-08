@@ -25,4 +25,5 @@ fun appModule(appContext: Context) = Kodein.Module(name = "app") {
     }
 
     import(repoModule)
+    import(profileModule)
 }
