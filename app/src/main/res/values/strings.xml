@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GitHub App</string>
+
+    <!--Houses-->
+    <string name="repos_title">Repos</string>
+
+</resources>
