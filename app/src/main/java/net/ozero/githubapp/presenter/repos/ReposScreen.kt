@@ -23,8 +23,14 @@ class RepoPresenter(private val view: ReposView) : BasePresenter(view) {
         }
         executor.execute(loadMoreRepos) {}
     }
+
+    fun onRepoPressed(id: Long) {
+        view.navigateRepoDetails(id)
+    }
 }
 
 interface ReposView : BaseView {
     var repos: List<Repo>
+
+    fun navigateRepoDetails(id: Long)
 }

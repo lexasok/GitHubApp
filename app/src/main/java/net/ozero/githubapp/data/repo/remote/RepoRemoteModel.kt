@@ -6,7 +6,7 @@ import net.ozero.githubapp.entity.Repo
 
 data class RepoRemoteModel(
     @SerializedName("id")
-    val id: Int = 0,
+    val id: Long = 0,
     @SerializedName("name")
     val repoName: String = "",
     @SerializedName("owner")

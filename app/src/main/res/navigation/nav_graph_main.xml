@@ -10,9 +10,7 @@
         android:label="HomeFragment">
         <action
             android:id="@+id/action_homeFragment_to_reposDetailsFragment"
-            app:destination="@id/reposDetailsFragment">
-
-        </action>
+            app:destination="@id/reposDetailsFragment" />
     </fragment>
 
     <fragment

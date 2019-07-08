@@ -15,7 +15,4 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
 
     override fun initView() {}
 
-    override fun showLoading() {}
-
-    override fun stopLoading() {}
 }

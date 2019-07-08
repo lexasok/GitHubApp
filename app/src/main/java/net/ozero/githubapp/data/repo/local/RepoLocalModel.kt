@@ -8,7 +8,7 @@ import net.ozero.githubapp.entity.Repo
 @Entity
 data class RepoLocalModel(
     @PrimaryKey
-    val id: Int,
+    val id: Long,
     val repoName: String,
     val ownerName: String,
     val description: String

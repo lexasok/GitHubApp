@@ -23,6 +23,7 @@ class RepoDetailsPresenter(private val view: RepoDetailsView, private val resour
         if (arguments != null && id  > 0) {
             executor.executeParamsObservable(observeRepoByIdUseCase, id) {
                 it.await().observe(view, Observer {repo ->
+                    val repo = repo
                     view.repo = repo
                 })
             }
@@ -30,8 +31,15 @@ class RepoDetailsPresenter(private val view: RepoDetailsView, private val resour
             view.showError(WrongDataError(resources.getString(R.string.error_wrong_data)))
         }
     }
+
+    fun onBackButtonPressed() {
+        view.back()
+    }
 }
 
 interface RepoDetailsView : BaseView {
+
     var repo: Repo?
+
+    fun back()
 }

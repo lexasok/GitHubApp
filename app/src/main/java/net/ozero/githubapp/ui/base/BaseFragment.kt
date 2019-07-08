@@ -25,19 +25,11 @@ abstract class BaseFragment<T: BasePresenter> : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter = initPresenter()
-        presenter.onCreate()
+        presenter.onCreate(arguments)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        presenter.onDestroy()
-    }
-    override fun onStop() {
-        super.onStop()
-        presenter.onDestroy()
-    }
-    override fun onPause() {
-        super.onPause()
         presenter.onDestroy()
     }
 }

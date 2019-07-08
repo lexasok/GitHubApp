@@ -26,4 +26,8 @@ val repoModule = Kodein.Module("repo") {
     bind<LoadMoreReposUseCase>() with singleton {
         LoadMoreReposUseCase.ImplDraft(instance())
     }
+
+    bind<ObserveRepoByIdUseCase>() with singleton {
+        ObserveRepoByIdUseCase.Impl(instance())
+    }
 }

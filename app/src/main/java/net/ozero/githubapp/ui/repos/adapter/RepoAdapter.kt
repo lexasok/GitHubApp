@@ -10,11 +10,14 @@ import net.ozero.githubapp.entity.Repo
 import net.ozero.githubapp.ui.adapter.BaseListAdapter
 import net.ozero.githubapp.ui.adapter.BaseViewHolder
 
-class RepoAdapter : BaseListAdapter<RepoViewHolder, Repo>() {
+class RepoAdapter(
+    private val repoPressedListener: (id: Long) -> Unit
+) : BaseListAdapter<RepoViewHolder, Repo>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepoViewHolder =
         RepoViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_repo, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_repo, parent, false),
+            repoPressedListener
         )
 
     fun update(repos: List<Repo>) {
@@ -22,11 +25,13 @@ class RepoAdapter : BaseListAdapter<RepoViewHolder, Repo>() {
     }
 }
 
-class RepoViewHolder(view: View) : BaseViewHolder<Repo>(view) {
+
+class RepoViewHolder(view: View, private val listener: (id: Long) -> Unit) : BaseViewHolder<Repo>(view) {
     override fun bind(items: List<Repo>, position: Int) {
         val repo = items[position]
         itemView.item_repo_name.text = repo.repoName
         itemView.item_repo_owner_name.text = repo.ownerName
+        itemView.setOnClickListener { listener(repo.id) }
     }
 }
 
