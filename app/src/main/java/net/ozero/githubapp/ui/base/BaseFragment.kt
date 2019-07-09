@@ -5,7 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.activity_main.*
 import net.ozero.githubapp.presenter.base.BasePresenter
+import net.ozero.githubapp.presenter.base.HiddenMenuScreen
 
 abstract class BaseFragment<T: BasePresenter> : Fragment() {
 
@@ -33,10 +36,5 @@ abstract class BaseFragment<T: BasePresenter> : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         presenter.onDestroy()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-
     }
 }

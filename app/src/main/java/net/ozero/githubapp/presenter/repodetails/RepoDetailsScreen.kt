@@ -8,6 +8,7 @@ import net.ozero.githubapp.entity.Repo
 import net.ozero.githubapp.entity.WrongDataError
 import net.ozero.githubapp.presenter.base.BasePresenter
 import net.ozero.githubapp.presenter.base.BaseView
+import net.ozero.githubapp.presenter.base.HiddenMenuScreen
 import net.ozero.githubapp.usecase.repos.ObserveRepoByIdUseCase
 import org.kodein.di.erased.instance
 
@@ -17,13 +18,13 @@ class RepoDetailsPresenter(private val view: RepoDetailsView, private val resour
 
     override fun onCreate(arguments: Bundle?) {
         super.onCreate(arguments)
+
         val id = arguments
             ?.getLong(resources.getString(R.string.key_repo_id), 0L) ?: 0L
 
         if (arguments != null && id  > 0) {
             executor.executeParamsObservable(observeRepoByIdUseCase, id) {
                 it.await().observe(view, Observer {repo ->
-                    val repo = repo
                     view.repo = repo
                 })
             }
@@ -37,7 +38,7 @@ class RepoDetailsPresenter(private val view: RepoDetailsView, private val resour
     }
 }
 
-interface RepoDetailsView : BaseView {
+interface RepoDetailsView : BaseView, HiddenMenuScreen {
 
     var repo: Repo?
 

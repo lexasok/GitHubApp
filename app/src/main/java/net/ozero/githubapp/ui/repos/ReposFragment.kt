@@ -1,9 +1,11 @@
 package net.ozero.githubapp.ui.repos
 
 import android.os.Bundle
+import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_repos.*
 import net.ozero.githubapp.R
@@ -47,5 +49,9 @@ class ReposFragment : BaseFragment<RepoPresenter>(), ReposView {
         adapter = RepoAdapter(presenter::onRepoPressed)
         repos_list.layoutManager = LinearLayoutManager(repos_list.context)
         repos_list.adapter = adapter
+    }
+
+    override fun showMenu() {
+        activity?.main_bottom_navigation?.visibility = View.VISIBLE
     }
 }
