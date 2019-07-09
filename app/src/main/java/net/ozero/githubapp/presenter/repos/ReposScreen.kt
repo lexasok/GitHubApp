@@ -27,6 +27,10 @@ class RepoPresenter(private val view: ReposView) : BasePresenter(view) {
     fun onRepoPressed(id: Long) {
         view.navigateRepoDetails(id)
     }
+
+    fun onScrolledToBottom() {
+        executor.execute(loadMoreRepos) {}
+    }
 }
 
 interface ReposView : BaseView {

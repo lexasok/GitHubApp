@@ -5,6 +5,7 @@ import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_repos.*
@@ -49,6 +50,17 @@ class ReposFragment : BaseFragment<RepoPresenter>(), ReposView {
         adapter = RepoAdapter(presenter::onRepoPressed)
         repos_list.layoutManager = LinearLayoutManager(repos_list.context)
         repos_list.adapter = adapter
+
+        // TODO
+        repos_list.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                if (!recyclerView.canScrollVertically(1)
+                    && newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    presenter.onScrolledToBottom()
+                }
+            }
+        })
     }
 
     override fun showMenu() {

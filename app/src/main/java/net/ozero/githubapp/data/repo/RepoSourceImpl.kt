@@ -28,7 +28,13 @@ class RepoSourceImpl(private val apiClient: ApiClient, private val repoDao: Repo
         }
 
     override suspend fun loadMoreAsync(): Deferred<Result<List<Repo>>> = CoroutineScope(IO).async {
-        val response = apiClient.reposAsync().await()
+        val repos = repoDao.all()
+        val lastRepoId = if (repos.isNotEmpty()) {
+            repos.last().id
+        } else { 0 }
+        val response = apiClient.reposAsync(
+            lastRepoId
+        ).await()
         val body = response.body()
 
         // TODO try to bring to Consumer
