@@ -18,9 +18,6 @@ interface RepoDao {
     @Query("SELECT * FROM RepoLocalModel")
     fun observeAll(): LiveData<List<RepoLocalModel>>
 
-    @Query("SELECT * FROM RepoLocalModel")
-    fun all(): List<RepoLocalModel>
-
     @Query("SELECT * FROM RepoLocalModel ORDER BY id DESC LIMIT 1")
     fun last(): RepoLocalModel?
 

@@ -14,6 +14,7 @@ import net.ozero.githubapp.presenter.repos.RepoPresenter
 import net.ozero.githubapp.presenter.repos.ReposView
 import net.ozero.githubapp.ui.MainActivity
 import net.ozero.githubapp.ui.base.BaseFragment
+import net.ozero.githubapp.ui.listener.OnScrolldedToBottomListener
 import net.ozero.githubapp.ui.repos.adapter.RepoAdapter
 
 class ReposFragment : BaseFragment<RepoPresenter>(), ReposView {
@@ -59,17 +60,7 @@ class ReposFragment : BaseFragment<RepoPresenter>(), ReposView {
         adapter = RepoAdapter(presenter::onRepoPressed)
         repos_list.layoutManager = LinearLayoutManager(repos_list.context)
         repos_list.adapter = adapter
-
-        // TODO
-        repos_list.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                super.onScrollStateChanged(recyclerView, newState)
-                if (!recyclerView.canScrollVertically(1)
-                    && newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    presenter.onScrolledToBottom()
-                }
-            }
-        })
+        repos_list.addOnScrollListener(OnScrolldedToBottomListener(presenter::onScrolledToBottom))
     }
 
     override fun showMenu() {
