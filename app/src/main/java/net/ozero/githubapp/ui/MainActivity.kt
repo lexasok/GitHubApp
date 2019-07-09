@@ -14,5 +14,4 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
     override fun showError(error: Throwable) {}
 
     override fun initView() {}
-
 }

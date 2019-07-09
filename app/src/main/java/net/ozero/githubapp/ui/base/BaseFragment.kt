@@ -19,8 +19,10 @@ abstract class BaseFragment<T: BasePresenter> : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? =
-        LayoutInflater.from(container!!.context).inflate(layoutId(), container, false)
+    ): View? {
+        return LayoutInflater.from(context).inflate(layoutId(), container, false)
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,5 +33,10 @@ abstract class BaseFragment<T: BasePresenter> : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         presenter.onDestroy()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
     }
 }

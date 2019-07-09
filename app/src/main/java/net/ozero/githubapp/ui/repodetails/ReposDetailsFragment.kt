@@ -35,7 +35,6 @@ class ReposDetailsFragment : BaseFragment<RepoDetailsPresenter>(), RepoDetailsVi
     }
 
     override fun back() {
-
-        controller.navigateUp()
+        controller.navigate(R.id.homeFragment)
     }
 }
