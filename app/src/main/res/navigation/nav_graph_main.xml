@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph_main"
-    app:startDestination="@id/homeFragment">
+    android:id="@+id/nav_graph_bottom"
+    app:startDestination="@id/menuRepos"
+    >
 
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="net.ozero.githubapp.ui.home.HomeFragment"
-        android:label="HomeFragment">
+        android:id="@+id/menuRepos"
+        android:name="net.ozero.githubapp.ui.repos.ReposFragment"
+        android:label="ReposFragment">
         <action
             android:id="@+id/action_homeFragment_to_reposDetailsFragment"
             app:destination="@id/reposDetailsFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/menuProfile"
+        android:name="net.ozero.githubapp.ui.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        />
 
     <fragment
         android:id="@+id/reposDetailsFragment"

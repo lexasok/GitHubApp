@@ -19,7 +19,7 @@ class HomeFragment : BaseFragment<HomePresenter>(), HomeView {
 
         val navController = Navigation
             .findNavController(activity as MainActivity, R.id.home_nav_host)
-        home_bottom_navigation.setupWithNavController(navController)
+        main_bottom_navigation.setupWithNavController(navController)
     }
 
     override fun showError(error: Throwable) {}
