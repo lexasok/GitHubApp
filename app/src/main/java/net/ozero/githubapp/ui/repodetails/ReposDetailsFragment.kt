@@ -3,7 +3,6 @@ package net.ozero.githubapp.ui.repodetails
 import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_repo_details.*
 import net.ozero.githubapp.R
