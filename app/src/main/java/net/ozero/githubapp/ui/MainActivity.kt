@@ -27,4 +27,14 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
     override fun showMenu() {
         main_bottom_navigation.visibility = View.VISIBLE
     }
+
+    override var loading: Boolean = false
+        set(value) {
+            if (value) {
+                main_progress?.visibility = View.VISIBLE
+            } else {
+                main_progress?.visibility = View.GONE
+            }
+            field = value
+        }
 }

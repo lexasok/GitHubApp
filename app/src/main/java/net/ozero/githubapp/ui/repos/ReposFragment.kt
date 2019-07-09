@@ -6,7 +6,6 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_repos.*
 import net.ozero.githubapp.R
@@ -35,6 +34,16 @@ class ReposFragment : BaseFragment<RepoPresenter>(), ReposView {
         set(value) {
             adapter.update(value)
             repos_list.scrollToPosition(repos.size)
+            field = value
+        }
+
+    override var loading: Boolean = false
+        set(value) {
+            if (value) {
+                activity?.main_progress?.visibility = View.VISIBLE
+            } else {
+                activity?.main_progress?.visibility = View.GONE
+            }
             field = value
         }
 

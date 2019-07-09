@@ -28,6 +28,16 @@ class ReposDetailsFragment :
             field = value
         }
 
+    override var loading: Boolean = false
+        set(value) {
+            if (value) {
+                activity?.main_progress?.visibility = View.VISIBLE
+            } else {
+                activity?.main_progress?.visibility = View.GONE
+            }
+            field = value
+        }
+
     override fun initPresenter(): RepoDetailsPresenter = RepoDetailsPresenter(this, resources)
 
     override fun layoutId(): Int = R.layout.fragment_repo_details

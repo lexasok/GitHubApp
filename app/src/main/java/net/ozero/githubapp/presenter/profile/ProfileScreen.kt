@@ -13,8 +13,10 @@ class ProfilePresenter(private val view: ProfileView) : BasePresenter(view) {
 
     override fun onCreate(arguments: Bundle?) {
         super.onCreate(arguments)
+        loading = true
         executor.execute(profile) {
             view.profile = it.await()
+            loading = false
         }
     }
 }

@@ -11,6 +11,11 @@ import org.kodein.di.erased.instance
 abstract class BasePresenter(private val view: BaseView) : KodeinAware {
 
     val executor: UseCaseExecutor by instance(arg = this)
+    var loading: Boolean = false
+        set(value) {
+            view.loading = value
+            field = value
+        }
 
     override val kodein: Kodein
         get() = App.kodein()
@@ -22,9 +27,11 @@ abstract class BasePresenter(private val view: BaseView) : KodeinAware {
         } else {
             view.showMenu()
         }
+        view.loading = loading
     }
 
     fun onDestroy() {
+        loading = false
         executor.cancel()
     }
 
@@ -41,4 +48,6 @@ interface BaseView: LifecycleOwner {
     fun initView()
 
     fun showError(error: Throwable)
+
+    var loading: Boolean
 }

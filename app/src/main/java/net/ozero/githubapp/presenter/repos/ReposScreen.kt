@@ -19,9 +19,11 @@ class RepoPresenter(private val view: ReposView) : BasePresenter(view) {
         executor.executeObservable(repos) {
             it.await().observe(view, Observer {repos ->
                 view.repos = repos
+                if (repos.isEmpty()) {
+                    loadMore()
+                }
             })
         }
-        executor.execute(loadMoreRepos) {}
     }
 
     fun onRepoPressed(id: Long) {
@@ -29,7 +31,17 @@ class RepoPresenter(private val view: ReposView) : BasePresenter(view) {
     }
 
     fun onScrolledToBottom() {
-        executor.execute(loadMoreRepos) {}
+        loadMore()
+    }
+
+    private fun loadMore() {
+        if (!loading) {
+            loading = true
+            executor.execute(loadMoreRepos) {
+                it.await()
+                loading = false
+            }
+        }
     }
 }
 
