@@ -51,8 +51,6 @@ class ReposFragment : BaseFragment<RepoPresenter>(), ReposView {
 
     override fun layoutId(): Int = R.layout.fragment_repos
 
-    override fun showError(error: Throwable) {}
-
     override fun initView() {
         controller =  Navigation
             .findNavController(activity as MainActivity, R.id.main_nav_host)

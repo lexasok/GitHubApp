@@ -13,7 +13,7 @@ import net.ozero.githubapp.presenter.repodetails.RepoDetailsView
 import net.ozero.githubapp.ui.MainActivity
 import net.ozero.githubapp.ui.base.BaseFragment
 
-class ReposDetailsFragment :
+class RepoDetailsFragment :
     BaseFragment<RepoDetailsPresenter>(),
     RepoDetailsView,
     HiddenMenuScreen {
@@ -41,8 +41,6 @@ class ReposDetailsFragment :
     override fun initPresenter(): RepoDetailsPresenter = RepoDetailsPresenter(this, resources)
 
     override fun layoutId(): Int = R.layout.fragment_repo_details
-
-    override fun showError(error: Throwable) {}
 
     override fun initView() {
         controller =  Navigation

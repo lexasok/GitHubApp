@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/reposDetailsFragment"
-        android:name="net.ozero.githubapp.ui.repodetails.ReposDetailsFragment"
+        android:name="net.ozero.githubapp.ui.repodetails.RepoDetailsFragment"
         android:label="ReposDetailsFragment" >
         <argument
             android:name="@string/key_repo_id"

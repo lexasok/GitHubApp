@@ -38,8 +38,6 @@ class ProfileFragment : BaseFragment<ProfilePresenter>(), ProfileView {
 
     override fun layoutId(): Int = R.layout.fragment_profile
 
-    override fun showError(error: Throwable) {}
-
     override fun initView() {}
 
     override fun showMenu() {
