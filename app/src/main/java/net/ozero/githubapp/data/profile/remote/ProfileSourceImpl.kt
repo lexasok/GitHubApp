@@ -16,7 +16,6 @@ class ProfileSourceImpl(private val apiClient: ApiClient) : ProfileSource {
         val response = apiClient.profileAsync().await()
         val body = response.body()
 
-        // TODO try to bring to Consumer
         if (response.isSuccessful && body != null) {
             val result = body.mapToDomain()
             Result(result)

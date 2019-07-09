@@ -28,16 +28,11 @@ class RepoSourceImpl(private val apiClient: ApiClient, private val repoDao: Repo
         }
 
     override suspend fun loadMoreAsync(): Deferred<Result<List<Repo>>> = CoroutineScope(IO).async {
-        val repos = repoDao.all()
-        val lastRepoId = if (repos.isNotEmpty()) {
-            repos.last().id
-        } else { 0 }
         val response = apiClient.reposAsync(
-            lastRepoId
+            repoDao.last()?.id ?: 0L
         ).await()
         val body = response.body()
 
-        // TODO try to bring to Consumer
         if (response.isSuccessful && body != null) {
             val result = body.map { it.mapToDomain() }
             Result(result)
