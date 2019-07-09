@@ -49,11 +49,3 @@ class HousesCallback(private val oldList: List<Repo>, private val newList: List<
         oldList[oldItemPosition].repoName == newList[newItemPosition].repoName
 }
 
-class HousesItemCallback : DiffUtil.ItemCallback<Repo>() {
-    override fun areItemsTheSame(oldItem: Repo, newItem: Repo): Boolean =
-        oldItem.id == newItem.id
-
-    override fun areContentsTheSame(oldItem: Repo, newItem: Repo): Boolean  =
-        oldItem.repoName == newItem.repoName
-}
-

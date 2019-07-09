@@ -23,8 +23,6 @@ data class RepoRemoteModel(
     )
 }
 
-fun Repo.toRemoteModel() = RepoRemoteModel(id, repoName, Owner(ownerName), description)
-
 data class Owner(
     @SerializedName("login")
     val login: String = ""

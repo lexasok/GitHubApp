@@ -10,7 +10,7 @@ interface LoadMoreReposUseCase : UseCase<Unit> {
         override suspend fun executeAsync(): Deferred<Unit> =
             CoroutineScope(Dispatchers.IO).async {
                 val result = repoSource.loadMoreAsync().await()
-                if (result.isSucces()) {
+                if (result.isSuccess()) {
                     repoSource.saveAll(result.value!!)
                 } else {
                     throw result.error

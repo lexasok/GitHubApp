@@ -6,11 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.activity_main.*
 import net.ozero.githubapp.presenter.base.BasePresenter
 import net.ozero.githubapp.presenter.base.BaseView
-import net.ozero.githubapp.presenter.base.HiddenMenuScreen
 
 abstract class BaseFragment<T: BasePresenter> : Fragment(), BaseView {
 

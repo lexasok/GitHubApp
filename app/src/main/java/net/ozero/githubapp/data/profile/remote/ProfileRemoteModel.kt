@@ -17,8 +17,6 @@ data class ProfileRemoteModel(
 ) : DataMapper<Profile> {
 
     override fun mapToDomain(): Profile {
-//        val dateFormat = SimpleDateFormat(API_DATE_PATTERN, Locale.getDefault())
-//        dateFormat.parse(createdAt)
 
         return Profile(
             login,

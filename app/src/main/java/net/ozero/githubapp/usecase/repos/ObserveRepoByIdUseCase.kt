@@ -7,7 +7,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import net.ozero.githubapp.entity.Repo
 import net.ozero.githubapp.usecase.ObservableParamsUseCase
-import net.ozero.githubapp.usecase.ObservableUseCase
 
 interface ObserveRepoByIdUseCase : ObservableParamsUseCase<Repo, Long> {
 

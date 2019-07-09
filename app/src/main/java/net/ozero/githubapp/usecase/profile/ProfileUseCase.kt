@@ -11,7 +11,7 @@ interface ProfileUseCase : UseCase<Profile> {
         override suspend fun executeAsync(): Deferred<Profile> =
             CoroutineScope(Dispatchers.IO).async {
                 val result = profileSource.profileAsync().await()
-                if (result.isSucces()) {
+                if (result.isSuccess()) {
                     result.value!!
                 } else {
                     throw result.error
