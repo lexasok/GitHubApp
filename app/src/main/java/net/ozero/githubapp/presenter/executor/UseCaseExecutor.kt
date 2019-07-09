@@ -14,11 +14,10 @@ class UseCaseExecutor(
     private val errorHandler: ErrorHandler
 ) {
 
-    private var job: Job? = null
+    private var allJobs = mutableListOf<Job>()
 
-    // TODO add params
     fun <TEntity>execute(useCase: UseCase<TEntity>, action: suspend (Deferred<TEntity>) -> Unit) {
-        job = scope.launch {
+        val job = scope.launch {
             try {
                 val deferred = useCase.executeAsync()
                 action(deferred)
@@ -33,13 +32,14 @@ class UseCaseExecutor(
                 }
             }
         }
+        allJobs.add(job)
     }
 
     fun <TEntity>executeObservable(
         useCase: ObservableUseCase<TEntity>,
         action: suspend (Deferred<LiveData<TEntity>>) -> Unit
     ) {
-        job = scope.launch {
+        val job = scope.launch {
             try {
                 val deferred = useCase.executeAsync()
                 action(deferred)
@@ -54,6 +54,7 @@ class UseCaseExecutor(
                 }
             }
         }
+        allJobs.add(job)
     }
 
     fun <TEntity, TParams>executeParamsObservable(
@@ -61,7 +62,7 @@ class UseCaseExecutor(
         params: TParams,
         action: suspend (Deferred<LiveData<TEntity>>) -> Unit
     ) {
-        job = scope.launch {
+        val job = scope.launch {
             try {
                 val deferred = useCase.executeAsync(params)
                 action(deferred)
@@ -76,10 +77,13 @@ class UseCaseExecutor(
                 }
             }
         }
+        allJobs.add(job)
     }
 
     fun cancel() {
-        job?.cancel()
-        job = null
+        for (job in allJobs) {
+            job.cancel()
+        }
+        allJobs.clear()
     }
 }
